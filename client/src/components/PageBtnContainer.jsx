@@ -2,6 +2,7 @@ import React from "react";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { useLocation, useNavigate } from "react-router-dom";
 import Wrapper from "./../assets/wrappers/PageBtnContainer";
+import { nextArrow, prevArrow } from "../constants/PAGINATION";
 
 const PageBtnContainer = ({ pages, page }) => {
   const pagesNumber = Array.from({ length: pages }, (_, index) => {
@@ -19,11 +20,13 @@ const PageBtnContainer = ({ pages, page }) => {
   const addPageButton = ({ pageNumber, activeClass }) => {
     return (
       <button
-        className={`btn page-btn ${activeClass && "active"}`}
+        className={`btn page-btn ${
+          activeClass && "active flex justify-center items-center"
+        }`}
         key={pageNumber}
         onClick={() => handlePageChange(pageNumber)}
       >
-        {pageNumber}
+        <span>{pageNumber}</span>
       </button>
     );
   };
@@ -86,7 +89,7 @@ const PageBtnContainer = ({ pages, page }) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper dir="ltr">
       <button
         className="btn prev-btn"
         onClick={() => {
@@ -96,7 +99,7 @@ const PageBtnContainer = ({ pages, page }) => {
         }}
       >
         <HiChevronDoubleLeft />
-        prev
+        {prevArrow}
       </button>
       <div className="btn-container">{renderPageButtons()}</div>
       <button
@@ -107,7 +110,7 @@ const PageBtnContainer = ({ pages, page }) => {
           handlePageChange(nextPage);
         }}
       >
-        next
+        {nextArrow}
         <HiChevronDoubleRight />
       </button>
     </Wrapper>
@@ -115,35 +118,3 @@ const PageBtnContainer = ({ pages, page }) => {
 };
 
 export default PageBtnContainer;
-
-// const PageBtnContainer = ({ pages, page, keyword = "", category = "" }) => {
-//   return (
-//     <Wrapper>
-//       {pages > 1 && (
-//         <Pagination className="pagination">
-//           {[...Array(pages).keys()].map((x) => (
-//             <LinkContainer
-//               key={x + 1}
-//               to={{
-//                 pathname: "/all-companies",
-//                 search: `?search=${keyword}&category=${category}&pageNumber=${
-//                   x + 1
-//                 }`,
-//               }}
-//             >
-//               <Pagination.Item
-//                 className={
-//                   x + 1 === page ? "pagination-item active" : "pagination-item"
-//                 }
-//                 action={(x + 1 === page).toString()}
-//               >
-//                 {x + 1}
-//               </Pagination.Item>
-//             </LinkContainer>
-//           ))}
-//         </Pagination>
-//       )}
-//     </Wrapper>
-//   );
-// };
-// export default PageBtnContainer;
