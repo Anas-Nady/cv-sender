@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.section`
   nav {
@@ -18,7 +18,7 @@ const Wrapper = styled.section`
   h1 {
     font-weight: 700;
     span {
-      color: var(--primary-500);
+      color: var(--gray-500);
     }
     margin-bottom: 1.5rem;
   }

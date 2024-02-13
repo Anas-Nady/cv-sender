@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.main`
   min-height: 100vh;
@@ -23,7 +23,7 @@ const Wrapper = styled.main`
     color: var(--text-secondary-color);
   }
   a {
-    color: var(--primary-500);
+    color: var(--gray-500);
     text-transform: capitalize;
   }
 `;

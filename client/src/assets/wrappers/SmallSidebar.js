@@ -61,7 +61,7 @@ const Wrapper = styled.aside`
     min-width: 200px;
   }
   .nav-link:hover {
-    color: var(--primary-500);
+    color: var(--gray-500);
   }
   .icon {
     font-size: 1.5rem;
